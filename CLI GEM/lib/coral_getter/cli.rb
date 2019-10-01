@@ -53,12 +53,13 @@ class CoralGetter::CLI
         when "ZZ".downcase || "RR".downcase
           do_a_barrel_roll
         else
+              unless input == 'exit'.downcase
               Ending.new.ending_secret
               input = "exit"
             end
           end
         end
-
+      end  
 
   def all_sps_names
     puts "sps names"
@@ -92,7 +93,7 @@ class CoralGetter::CLI
 
 end
 
-#test 
+#test
 
 # user types show corals
 
