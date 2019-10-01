@@ -54,12 +54,14 @@ class CoralGetter::CLI
           do_a_barrel_roll
         else
               unless input == 'exit'.downcase
+                clear
+                print "\e[3J\e[H\e[2J"
               Ending.new.ending_secret
               input = "exit"
             end
           end
         end
-      end  
+      end
 
   def all_sps_names
     puts "sps names"
@@ -91,8 +93,11 @@ class CoralGetter::CLI
       puts "Use 'exit' Human."
   end
 
-end
+  def clear
+   puts "\e[2J\e[f"
+ end
 
+end
 #test
 
 # user types show corals
