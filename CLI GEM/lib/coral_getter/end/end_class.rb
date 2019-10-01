@@ -1,7 +1,7 @@
  class Ending
 
 
-  def self.ending_secret
+  def ending_secret
 
      puts `clear`
 
