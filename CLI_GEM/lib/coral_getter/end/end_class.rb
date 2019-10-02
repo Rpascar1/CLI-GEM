@@ -21,7 +21,7 @@ end
 
       3.times do
         i = 1
-        while i < 15
+        while i < 10
           print "\033[2J"
           heads.each do |p|
             puts p
@@ -30,6 +30,7 @@ end
           end
         end
       end
+      system "clear"
     end
 
 
