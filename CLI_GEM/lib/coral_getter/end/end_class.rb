@@ -31,6 +31,7 @@ end
         end
       end
       system "clear"
+      exit
     end
 
 

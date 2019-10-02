@@ -1,25 +1,15 @@
 require 'launchy'
 
 
-#CLI CONTROLLER
+
 class CoralGetter::CLI
 
 
 
   def user_menu
 
-      puts <<_
-                                    dP                      oo
-                                    88
-.d8888b. .d8888b. 88d888b. .d8888b. 88    88d888b. 88d888b. dP .d8888b. .d8888b. .d8888b.
-88'  `"" 88'  `88 88'  `88 88'  `88 88    88'  `88 88'  `88 88 88'  `"" 88ooood8 Y8ooooo.
-88.  ... 88.  .88 88       88.  .88 88    88.  .88 88       88 88.  ... 88.  ...       88
-`88888P' `88888P' dP       `88888P8 dP    88Y888P' dP       dP `88888P' `88888P' `88888P'
-                                          88
-                                          dP
+      Coral.new.coral_p
 
-
-_
       puts
       puts
       puts "Please make a selection:"
@@ -37,8 +27,8 @@ _
       puts
       puts
       puts
-      puts "WARNING. Pressing an unlisted number might not be a good idea."
-      puts "Secret Function - Do a barrel roll Fox, N1000000 version only. I you know, you know"
+      puts
+      puts "Secret Function - Do a barrel roll Fox, N1000000 version only. If you know, you know."
 
       input = nil
       secretanswer = nil
@@ -58,11 +48,13 @@ _
         when ""
           puts "Invalid entry, please try again."
         when "menu"
-          call_on_open
+          input = "exit"
+          print `clear`
+          CoralGetter::CLI.new.user_menu
         when "clear"
-            clear
-            print "\e[3J\e[H\e[2J"
-            user_menu
+          input = "exit"
+          print `clear`
+          CoralGetter::CLI.new.user_menu
         when "self-destruct"
             clear
             print "\e[3J\e[H\e[2J"
@@ -74,7 +66,6 @@ _
               if input.to_i > 4
                 puts "Invalid option. Please make another selection."
               end
-
           end
         end
       end
@@ -122,17 +113,5 @@ _
    @prices = CoralGetter::SpsCoral.prices
  end
 
-  
+
 end
-#test
-
-# user types show corals
-
-# list SPS prices
-#
-# list SPS names
-#
-# list quantity -  if a thing for limited runs should have number
-#
-# list how many in 3 price ranges ranges
-#  pick price range

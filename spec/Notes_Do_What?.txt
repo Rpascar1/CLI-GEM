@@ -27,8 +27,22 @@ element ==
 
                 <span class="visually-hidden">Regular price</span>
                 <span class="product__price--reg js-price">$250</span>
-              
+
             </p>
 <button type="button" class="btn btn--add-to-cart btn--disabled disabled" disabled="">
                 Sold out
               </button>
+
+
+              #test
+
+              # user types show corals
+
+              # list SPS prices
+              #
+              # list SPS names
+              #
+              # list quantity -  if a thing for limited runs should have number
+              #
+              # list how many in 3 price ranges ranges
+              #  pick price range

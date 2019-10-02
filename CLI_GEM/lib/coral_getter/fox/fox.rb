@@ -1,6 +1,9 @@
 class Fox
 
+
+
 def do_a_barrel_roll
+
    puts `clear`
     puts "                                                ..                                    ..                                              ..,    .
                                            .  .                                  . ..                                              . ..    ..
@@ -65,6 +68,9 @@ def do_a_barrel_roll
           Launchy.open("https://www.youtube.com/watch?v=wIkJvY96i8w")
           secret_function_menu
       puts "Use 'exit' Human."
+
+
+
     end
 
     def clear
@@ -72,6 +78,7 @@ def do_a_barrel_roll
     end
 
     def secret_function_menu
+
       puts "---------------------------------------------------------"
       puts "| type = self-destruct                                  |"
       puts "| type = 'secret function' to open secret function test |"
@@ -88,7 +95,7 @@ def do_a_barrel_roll
        do_a_barrel_roll
     else
       Launchy.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-      goodbye
+        exit
     end
   end
 
