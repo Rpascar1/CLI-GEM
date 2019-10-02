@@ -65,6 +65,8 @@ class CoralGetter::CLI
          else
               if input.to_i > 4
                 puts "Invalid option. Please make another selection."
+              else
+                puts "Invalid option. Please make another selection."
               end
           end
         end
@@ -98,7 +100,7 @@ class CoralGetter::CLI
    puts "\e[2J\e[f"
   end
 
- def call_on_open
+  def call_on_open
    puts
    puts
    puts "Welcome! To see current coral information enter the corresponding number to one of the following options.\nYou can return to this menu at anytime by typing menue./n If you would like to end the session, please type exit."
@@ -106,12 +108,12 @@ class CoralGetter::CLI
    puts
    user_menu
    goodbye
- end
+  end
 
- def harvest_url
+  def harvest_url
    https://tjmcorals.com/collections/all
    @prices = CoralGetter::SpsCoral.prices
- end
+  end
 
 
 end
