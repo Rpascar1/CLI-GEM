@@ -4,20 +4,7 @@ require 'launchy'
 #CLI CONTROLLER
 class CoralGetter::CLI
 
-  def call_on_open
-    puts
-    puts
-    puts "Welcome! To see current coral information enter the corresponding number to one of the following options.\nYou can return to this menu at anytime by typing menue./n If you would like to end the session, please type exit."
-    puts
-    puts
-    user_menu
-    goodbye
-  end
 
-  def harvest_url
-    https://tjmcorals.com/collections/all
-    @prices = CoralGetter::SpsCoral.prices
-  end
 
   def user_menu
 
@@ -45,7 +32,7 @@ _
       puts
       puts "4 'Bargain Bin' - all corals under $100."
       puts
-      puts "Please enter your selection... or exit."
+      puts "Please enter your selection, clear, or exit."
       puts
       puts
       puts
@@ -69,16 +56,25 @@ _
         when "Secret Function".downcase
               secret_answer
         when ""
-          puts "nope"
+          puts "Invalid entry, please try again."
         when "menu"
           call_on_open
-        else
-              unless input == 'exit'.downcase ||= "\e[A\e[B\e[C\e[D\n"
-                clear
-                print "\e[3J\e[H\e[2J"
-              Ending.new.ending_secret
-              input = "exit"
-            end
+        when "clear"
+            clear
+            print "\e[3J\e[H\e[2J"
+            user_menu
+        when "self-destruct"
+            clear
+            print "\e[3J\e[H\e[2J"
+            Ending.new.ending_secret
+            clear
+            print "\e[3J\e[H\e[2J"
+            input = "exit"
+         else
+              if input.to_i > 4
+                puts "Invalid option. Please make another selection."
+              end
+
           end
         end
       end
@@ -171,6 +167,7 @@ _
       puts "Level up Fox. You found my first program ever." '"Twittter for Gucci Smart Toilet™"'
             Launchy.open("https://twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet")
             Launchy.open("https://www.youtube.com/watch?v=wIkJvY96i8w")
+            secret_function_menu
         puts "Use 'exit' Human."
       end
 
@@ -187,10 +184,34 @@ _
     end
 
 
+
+
+
   def clear
    puts "\e[2J\e[f"
  end
 
+ def call_on_open
+   puts
+   puts
+   puts "Welcome! To see current coral information enter the corresponding number to one of the following options.\nYou can return to this menu at anytime by typing menue./n If you would like to end the session, please type exit."
+   puts
+   puts
+   user_menu
+   goodbye
+ end
+
+ def harvest_url
+   https://tjmcorals.com/collections/all
+   @prices = CoralGetter::SpsCoral.prices
+ end
+
+    def secret_function_menu
+      puts "type = self-destruct"
+      puts "type = 'secret function' to open secret function test"
+      puts "type = ZZ or RR for secret function test answer"
+      puts "type = incorrect answer for secret function"
+    end
 end
 #test
 

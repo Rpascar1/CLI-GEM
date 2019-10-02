@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require "bundler/setup"
 require './lib/environment'
 
 CoralGetter::CLI.new.call_on_open
