@@ -1,9 +1,13 @@
+require 'launchy'
+
 
 #CLI CONTROLLER
 class CoralGetter::CLI
 
   def call_on_open
-    puts "Welcome Human. Exotic Small Polyp Stony coral specimen information awaits you."
+    puts
+    puts
+    puts "Welcome! To see current coral information enter the corresponding number to one of the following options.\nYou can return to this menu at anytime by typing menue./n If you would like to end the session, please type exit."
     puts
     puts
     user_menu
@@ -16,23 +20,41 @@ class CoralGetter::CLI
   end
 
   def user_menu
-      puts "Please enter the integer value of your chemically generated selection || type 'exit' to end our conversation."
+
+      puts <<_
+                                    dP                      oo
+                                    88
+.d8888b. .d8888b. 88d888b. .d8888b. 88    88d888b. 88d888b. dP .d8888b. .d8888b. .d8888b.
+88'  `"" 88'  `88 88'  `88 88'  `88 88    88'  `88 88'  `88 88 88'  `"" 88ooood8 Y8ooooo.
+88.  ... 88.  .88 88       88.  .88 88    88.  .88 88       88 88.  ... 88.  ...       88
+`88888P' `88888P' dP       `88888P8 dP    88Y888P' dP       dP `88888P' `88888P' `88888P'
+                                          88
+                                          dP
+
+
+_
       puts
-      puts "1 Species name lists are available here"
       puts
-      puts "2 Human, to see a valuation range of life in fiat currency please choose this selection."
+      puts "Please make a selection:"
       puts
-      puts "3 To see exact genetic strains at todays market rates enter 3."
+      puts "1 For a full list of species street names."
       puts
-      puts "4 To see specimen that are less than 100 credits and nearing death, enter 4."
+      puts "2 See the price range of all available stock."
       puts
-      puts "Secret - Do a barrel roll Fox 1000000 version"
+      puts "3 Complete list of names and prices of all stock."
       puts
-      puts "Press any other key to self destruct."
+      puts "4 'Bargain Bin' - all corals under $100."
       puts
-      puts " Please enter selection..."
+      puts "Please enter your selection... or exit."
+      puts
+      puts
+      puts
+      puts
+      puts "WARNING. Pressing an unlisted number might not be a good idea."
+      puts "Secret Function - Do a barrel roll Fox, N1000000 version only. I you know, you know"
 
       input = nil
+      secretanswer = nil
       while input != "exit"
         input = gets.strip.downcase
         case input
@@ -44,16 +66,14 @@ class CoralGetter::CLI
           list_names_with_prices
         when "4"
           quantity
-        when "5"
-          puts "You are self described as poor, Human. Enter your 'budget' for the living art which has infinite intrisic value."
-          input = gets.strip.downcase
-          if input < 100
-            price_range
-          end
-        when "ZZ".downcase || "RR".downcase
-          do_a_barrel_roll
+        when "Secret Function".downcase
+              secret_answer
+        when ""
+          puts "nope"
+        when "menu"
+          call_on_open
         else
-              unless input == 'exit'.downcase
+              unless input == 'exit'.downcase ||= "\e[A\e[B\e[C\e[D\n"
                 clear
                 print "\e[3J\e[H\e[2J"
               Ending.new.ending_secret
@@ -84,14 +104,25 @@ class CoralGetter::CLI
   end
 
   def goodbye
-    puts "The biosphere has collapsed."
+    puts "Session Exited"
   end
 
   def do_a_barrel_roll
-      puts "Level up Fox. You found my first program ever."
-      puts "https://twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet"
-      puts "Use 'exit' Human."
-  end
+
+      puts "Level up Fox. You found my first program ever." '"Twittter for Gucci Smart Toilet™"'
+            Launchy.open("https://twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet")
+            Launchy.open("https://www.youtube.com/watch?v=wIkJvY96i8w")
+        puts "Use 'exit' Human."
+      end
+
+    def secret_answer
+      if  == "ZZ".downcase || input == "RR".downcase
+         do_a_barrel_roll
+      else
+        Launchy.open("")
+      end
+    end
+
 
   def clear
    puts "\e[2J\e[f"

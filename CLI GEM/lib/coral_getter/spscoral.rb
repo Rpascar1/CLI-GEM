@@ -4,11 +4,13 @@ class SpsCoral
 
   def self.prices
     puts "get prices" #should return prices
-    puts <<-DOC.gsub /^\s*/,""
+
+    puts <<_DOC
     1.  TJM Fire Cracker
     2.  Nuclear Avenger
     3.  Gastric expanse Monitpora
-  DOC
+_DOC
+
 
   coral1 = self.new
   coral1.name = "Tjm Fire Cracker"

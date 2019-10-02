@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
-require './lib/coral_getter'
+
+require './lib/environment'
 
 CoralGetter::CLI.new.call_on_open
