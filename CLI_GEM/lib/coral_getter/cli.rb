@@ -36,7 +36,7 @@ class CoralGetter::CLI
         input = Readline.readline.downcase
         case input
         when "1"
-          all_sps_names
+          puts "all_sps_names"
         when "2"
           range_of_prices
         when "3"
