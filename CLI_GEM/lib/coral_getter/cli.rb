@@ -33,7 +33,7 @@ class CoralGetter::CLI
       input = nil
       secretanswer = nil
       while input != "exit"
-        input = gets.strip.downcase
+        input = Readline.readline.downcase
         case input
         when "1"
           all_sps_names
