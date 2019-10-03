@@ -1,5 +1,5 @@
 require 'launchy'
-
+require 'readline'
 
 
 class CoralGetter::CLI
@@ -66,14 +66,20 @@ class CoralGetter::CLI
               if input.to_i > 4
                 puts "Invalid option. Please make another selection."
               else
-                puts "Invalid option. Please make another selection."
+                unless input == 'exit'
+                  puts "Invalid option. Please make another selection."
               end
           end
         end
       end
+    end
 
   def all_sps_names
-    puts "sps names"
+    puts "SPS NAMES:"
+    @corals = CoralGetter::SpsCoral.coral
+    @corals.each.with_index(1) do |coral, i|
+      puts "#{i}. #{coral.name} - #{coral.price} - #{coral.availability}"
+    end
   end
 
   def range_of_prices

@@ -1,3 +1,4 @@
+require 'readline'
 class Fox
 
 
@@ -64,10 +65,10 @@ def do_a_barrel_roll
 
 "
     puts "Level up Fox. You found my first program ever." '"Twittter for Gucci Smart Toilet™"'
-          Launchy.open("https://twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet")
+          Launchy.open("https://m.twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet")
           Launchy.open("https://www.youtube.com/watch?v=wIkJvY96i8w")
           secret_function_menu
-      puts "Use 'exit' Human."
+      puts "Use 'exit' or 'menu' to return.."
 
 
 
@@ -88,12 +89,15 @@ def do_a_barrel_roll
     end
 
   def secret_answer
-    secretanswer = gets.strip.downcase
+    secretanswer = Readline.readline.downcase
     if secretanswer == "ZZ".downcase || secretanswer == "RR".downcase
       clear
       print "\e[3J\e[H\e[2J"
        do_a_barrel_roll
     else
+      if secretanswer == 'exit'
+        exit
+        end
       Launchy.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
         exit
     end
