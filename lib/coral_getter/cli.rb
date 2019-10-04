@@ -36,7 +36,11 @@ class CoralGetter::CLI
         input = Readline.readline.downcase
         case input
         when "1"
-          puts "all_sps_names"
+          puts "SPS NAMES:"
+          @corals = CoralGetter::SpsCoral.coral
+          @corals.each.with_index(1) do |coral, i|
+            puts "#{i}. #{coral.name} - #{coral.price} - #{coral.availability}"
+          end
         when "2"
           range_of_prices
         when "3"
@@ -74,13 +78,6 @@ class CoralGetter::CLI
       end
     end
 
-  def all_sps_names
-    puts "SPS NAMES:"
-    @corals = CoralGetter::SpsCoral.coral
-    @corals.each.with_index(1) do |coral, i|
-      puts "#{i}. #{coral.name} - #{coral.price} - #{coral.availability}"
-    end
-  end
 
   def range_of_prices
     puts "price range"

@@ -4,6 +4,7 @@ PATH
     coral_getter (0.1.0)
       launchy
       nokogiri
+      pry
       rb-readline
 
 GEM

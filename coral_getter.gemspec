@@ -38,5 +38,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rb-readline"
   spec.add_dependency "launchy"
   spec.add_dependency "nokogiri"
+  spec.add_dependency 'pry'
 33
 end

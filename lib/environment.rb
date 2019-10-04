@@ -1,6 +1,9 @@
+require 'open-uri'
 require 'nokogiri'
 require 'launchy'
 require 'readline'
+require 'pry'
+
 require_relative  './coral_getter/version'
 # require_relative './coral_getter/end/end_class'
 
