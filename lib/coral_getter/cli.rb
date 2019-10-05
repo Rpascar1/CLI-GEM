@@ -37,22 +37,54 @@ class CoralGetter::CLI
         input = Readline.readline.downcase
         case input
         when "1"
-          puts "SPS NAMES:"
-          @corals = CoralGetter::SpsCoral.coral
-          @corals.each.with_index(1) do |coral, i|
-            puts "#{i}. #{coral.name} - #{coral.price} - #{coral.availability}"
-          end
+          clear
+          print "\e[3J\e[H\e[2J"
+          puts
+          puts
+          puts "Here is the full list of available corals."
+          puts "------------------------------------------"
+          puts
+              CoralGetter::SpsCoral.new.one
+          puts
+          puts
+          puts "------------------------------------------------------------"
+          puts "To return, enter 'menu' or enter 'exit' to end your session."
         when "2"
-          range_of_prices
+          clear
+          print "\e[3J\e[H\e[2J"
+          puts
+          puts
+          puts "Here is a list of all possible coral prices starting with the lowest and moving to the highest."
+          puts "-----------------------------------------------------------------------------------------------"
+          puts
+              CoralGetter::SpsCoral.new.two
+          puts
+          puts
+          puts "------------------------------------------------------------"
+          puts "To return, enter 'menu' or enter 'exit' to end your session."
+
         when "3"
-          list_names_with_prices
+          clear
+          print "\e[3J\e[H\e[2J"
+          puts
+          puts
+          puts "Here is a list of all the sps coral who's price is $100 or less."
+          puts "-----------------------------------------------------------------------------------------------"
+          puts
+              CoralGetter::SpsCoral.new.three
+          puts
+          puts
+          puts "------------------------------------------------------------"
+          puts "To return, enter 'menu' or enter 'exit' to end your session."
         when "4"
-          quantity
+          available
         when "Secret Function".downcase
               Fox.new.secret_answer
         when ""
           puts "Invalid entry, please try again."
         when "menu"
+          clear
+          print "\e[3J\e[H\e[2J"
           input = "exit"
           print `clear`
           CoralGetter::CLI.new.user_menu
