@@ -1,16 +1,19 @@
 require 'pry'
 require "httparty"
+require 'Launchy'
 
 
 class CoralGetter::SpsCoral
   @@data = nil
   @@corals = []
   @@three = []
+  @@four = []
     def initialize
       scrape
       @@data
       @@corals
       @@three
+      @@four
     end
 
 #@@all = []
@@ -51,16 +54,23 @@ class CoralGetter::SpsCoral
             puts "#{i}. #{line}"
             i += 1
           end
+          puts
+          puts
+
+            puts "The current price range of all sps coral is between $#{new_array.min} and $#{new_array.max} dollars."
+
     end
 
 
     def three
+
       array = []
 
         @@data["products"].each do |hash|
           @@three << {
                       :coralname => hash['title'],
-                      :price => hash["variants"][0]["price"].to_i
+                      :price => hash["variants"][0]["price"].to_i,
+                      :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}"
                      }
         end
             @@three.each do |coral|
@@ -70,10 +80,9 @@ class CoralGetter::SpsCoral
               array.uniq!
               array = array.sort!{|min,max| min <=> max}
 
-
-
-          end
+              end
           puts array
+
       end
 
             #   array = []
@@ -92,6 +101,27 @@ class CoralGetter::SpsCoral
               #        }
               #
 
+
+              def four
+                input = nil
+                while input != 'exit'
+                  input = Readline.readline.downcase
+                  @@data["products"].each do |hash|
+                  @@four << {
+                              :coralname => hash['title'],
+                              :price => hash["variants"][0]["price"].to_i,
+                              :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}"
+                             }
+                           end
+                           @@four.each do|coral|
+                             if input.downcase == coral[:coralname].downcase
+                               Launchy.open "#{coral[:url]}"
+                             end
+
+                           end
+                end
+                puts ""
+              end
 
 
             def self.all_corals

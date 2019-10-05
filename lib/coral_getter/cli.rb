@@ -19,9 +19,9 @@ class CoralGetter::CLI
       puts
       puts "2 See the price range of all available stock."
       puts
-      puts "3 Complete list of names and prices of all stock."
+      puts "3 'Bargain Bin' - all corals under $100."
       puts
-      puts "4 'Bargain Bin' - all corals under $100."
+      puts "4 Complete list of names and prices of all stock."
       puts
       puts "Please enter your selection, clear, or exit."
       puts
@@ -68,14 +68,19 @@ class CoralGetter::CLI
           print "\e[3J\e[H\e[2J"
           puts
           puts
-          puts "Here is a list of all the sps coral who's price is $100 or less."
+          puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
           puts "-----------------------------------------------------------------------------------------------"
           puts
               CoralGetter::SpsCoral.new.three
-          puts
-          puts
-          puts "------------------------------------------------------------"
-          puts "To return, enter 'menu' or enter 'exit' to end your session."
+
+              puts "------------------------------------------------------------"
+              puts "To return, enter 'menu' or enter 'exit' to end your session."
+              puts
+              puts " If you would like to see this coral, please type it's complete name."
+
+              CoralGetter::SpsCoral.new.four
+              exit
+              exit
         when "4"
           available
         when "Secret Function".downcase
