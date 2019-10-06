@@ -47,7 +47,7 @@ class CoralGetter::SpsCoral
           # puts "Enter 1 for a full list of availble species by street name."
     def one
 
-        @@corals.each do |attributes|
+        @@corals.uniq.each do |attributes|
         puts attributes[:coralname]
 
         puts = "Full list of available corals."
@@ -79,7 +79,9 @@ class CoralGetter::SpsCoral
 
     def three
 
-      array = []
+        array = []
+        input = nil
+
 
       @@data.each do |tophash|
       tophash["products"].each do |hash|
@@ -91,6 +93,7 @@ class CoralGetter::SpsCoral
         end
 
       end
+
             @@three.each do |coral|
 
             if coral[:price].to_i <= 100
@@ -98,60 +101,26 @@ class CoralGetter::SpsCoral
               end
               array.uniq!
               array = array.sort!{|min,max| min <=> max}
-
-              end
-          puts array
-
-      end
-
-
-              def four
-                input = nil
-                while input != 'exit'
-                  input = Readline.readline.downcase
-                  @@data.each do |tophash|
-                    tophash["products"].each do |hash|
-                      @@four << {
-                              :coralname => hash['title'],
-                              :price => hash["variants"][0]["price"].to_i,
-                              :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}"
-                             }
-                           end
-                           @@four.each do|coral|
-                             if input.downcase == coral[:coralname].downcase
-                               Launchy.open "#{coral[:url]}"
-                             end
-
-                           end
-                         end
-                end
-                puts ""
-              end
-
-
-            def self.all_corals
-              puts @@corals
             end
-          # puts
 
-          # puts
-          # puts "3 Complete list of names and prices of all stock."
-          # puts
-          # puts "4 'Bargain Bin' - all corals under $100."
-
-
+          puts array
+          puts "------------------------------------------------------------"
+          puts "To return, enter 'menu' or enter 'exit' to end your session."
+          puts
+          puts " If you would like to see this coral, please type it's complete name."
 
 
-   # name = @@all["products"][0]["title"]
-   # urlname = @@all["products"][0]["handle"]
-   # url = "https://tjmcorals.com/collections/sps/products/" + urlname
-   # price = @@all["products"][0]["variants"][0]["price"]
-   # available = @@all["products"][0]["variants"][0]["available"]
-   # # species = @@all["products"][0]["product_type"]
-   # s
-   # puts "Please make a selection:"
-   # puts
+            input = Readline.readline.downcase
+          if input == 'menu'
+            CoralGetter::CLI.new.call_on_open
+          end
+          if input != 'exit' || input != 'menu'
 
-
-
+          @@three.each do|coral|
+            if input.downcase == coral[:coralname].downcase
+            Launchy.open "#{coral[:url]}"
+            end
+          end
+      end
+    end
 end

@@ -72,15 +72,6 @@ class CoralGetter::CLI
           puts "-----------------------------------------------------------------------------------------------"
           puts
               CoralGetter::SpsCoral.new.three
-
-              puts "------------------------------------------------------------"
-              puts "To return, enter 'menu' or enter 'exit' to end your session."
-              puts
-              puts " If you would like to see this coral, please type it's complete name."
-
-              CoralGetter::SpsCoral.new.four
-              exit
-              exit
         when "4"
           available
         when "Secret Function".downcase
