@@ -35,17 +35,17 @@ class Coral
 ....``........------------.-:------.--.:/+ohyyssyyhdhhydddo``-yy-..``.:oddhhyys::--.....dNNd/oshdmmhhhy+/:-:.-::+/+//shmmmhy++:---:-...--.-...----.-.`
 .-....````````......``....-+hho/.--::/:/s++oossosooosshdmdhsooys.````:hmdhyhhy/--------/mNNmmmdhhhyyyhhhhys+::/:::/ymdmhhso+/:::---:::------..-::--..+
 --.----...``````````...::o+shddhhddhhyyhysssoso++////osyyhdmddmmdy+:omdhyyyhhy/::://+shddmmdhs+/.`--/+syhhddddhyyhdmdysoosoooohhhy/::-::/-:.--:/:::/yy
-----..........```..-/shddhssoo+/dmmo++/::::-:-....-...:/ossyhhdmdhymmddyyhhdds/                  --  MENU --                                    :/oosy
--..-..........```+hhysyoo/:-....:+-```  ``````   `.`.--.:://ooshdmmddhyhdhdddy/           Please make a selection:                              ///+ss
----..........`.............`````````````..```....-::::::--.`-:+osyyy                                                                            ::--:+
-........````/-`..-.``.-`````````:oooo////+++/+///+////://--.`.-:/oo+   1 - For a full list of species street names.                             -syhdy
-.```..-ss/+so:-/ss.`-hd+```````-///--::////+++/:/:/++++-::-.../:/+//                                                                            o::-``
-..-//:yo-:::-.:+++.-ss+:-````.:--:/:+//:::::///+/o+..:://:-::.-:-.-:   2 - See the price range of all available stock.                          ///+ss
-...o+/ss+..:/++/oysyyso//+/::o+/:--::/::+--::+//:--.:o+ss/-::--o:-::                                                                            -syhdy
-..ooo:/+/::+shsssoo/::----::+//+:.-/:/-/+:..-/:.....://++o/::::oooyh   3 - ''Bargain Bin'' - all corals under $100.                             o::-``
-./o-:--:+oo+++//:-..```.--+oo/+:--/:::::/+o//oo+oo///:-:///+++hyo+hN                                                                            :+hdh'
-./o-:--:+oo+++//:-..```.--+oo/+:--/:::::/+o//oo+oo///:-:///+++hyo+hN   4 - Complete list of names and prices of coral currently out of stock.   -syhdy
-..-//:yo-:::-.:+++.-ss+:-````.:--:/:+//:::::///+/o+..:://:-::.-:-.-:                                                                            sdho--
+----..........```..-/shddhssoo+/dmmo++/::::-:-....-...:/ossyhhdmdhym  ---------------------------------  MENU  -------------------------------  :/oosy
+-..-..........```+hhysyoo/:-....:+-```  ``````   `.`.--.:://ooshdmmd |                     Please make a selection:                           | ///+ss
+---..........`.............`````````````..```....-::::::--.`-:+osyyy |                                                                        | ::--:+
+........````/-`..-.``.-`````````:oooo////+++/+///+////://--.`.-:/oo+ | 1 - For a full list of species street names.                           | -syhdy
+.```..-ss/+so:-/ss.`-hd+```````-///--::////+++/:/:/++++-::-.../:/+// |                                                                        | o::-``
+..-//:yo-:::-.:+++.-ss+:-````.:--:/:+//:::::///+/o+..:://:-::.-:-.-: | 2 - See the price range of all available stock.                        | ///+ss
+...o+/ss+..:/++/oysyyso//+/::o+/:--::/::+--::+//:--.:o+ss/-::--o:-:: |                                                                        | -syhdy
+..ooo:/+/::+shsssoo/::----::+//+:.-/:/-/+:..-/:.....://++o/::::oooyh | 3 - ''Bargain Bin'' - all corals under $100.                           | o::-``
+./o-:--:+oo+++//:-..```.--+oo/+:--/:::::/+o//oo+oo///:-:///+++hyo+hN |                                                                        | :+hdh'
+./o-:--:+oo+++//:-..```.--+oo/+:--/:::::/+o//oo+oo///:-:///+++hyo+hN | 4 - Complete list of names and prices of coral currently out of stock. | -syhdy
+..-//:yo-:::-.:+++.-ss+:-````.:--:/:+//:::::///+/o+..:://:-::.-:-.-:  ------------------------------------------------------------------------  sdho--
 ...o+/ss+..:/++/oysyyso//+/::o+/:--::/::+--::+//:--.:o+ss/-::--o:-::/ssosysyyysyhhhyyyyyyyssoooo++++yMNdyoosyhdhdhydmNdhyhosyoossyyhddmNmNNmh:.--syhdy
 ..ooo:/+/::+shsssoo/::----::+//+:.-/:/-/+:..-/:.....://++o/::::oooyhdyyyyyyyyyyyhhsssoo+osyysoo+++/+ss+/:so+shmmysdhymNNmhsyhyso:/++o++syhmNmd/-:yymmd
 
