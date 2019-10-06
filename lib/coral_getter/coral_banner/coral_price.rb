@@ -1,6 +1,6 @@
 class Coral
 
-  def coral_p
+  def self.coral_p
 "                                    dP                      oo
                                     88
 .d8888b. .d8888b. 88d888b. .d8888b. 88    88d888b. 88d888b. dP .d8888b. .d8888b. .d8888b.

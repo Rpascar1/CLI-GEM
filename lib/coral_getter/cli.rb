@@ -10,7 +10,7 @@ class CoralGetter::CLI
   def user_menu
     clear
     print "\e[3J\e[H\e[2J"
-      puts Coral.new.coral_p
+      puts Coral.coral_p
 
       # puts
       # puts
@@ -30,7 +30,7 @@ class CoralGetter::CLI
       # puts
       # puts
       # puts
-      
+
       input = nil
       secretanswer = nil
       while input != "exit"

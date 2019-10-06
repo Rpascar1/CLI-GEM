@@ -24,7 +24,12 @@ Or install it yourself as:
 
 Use this app to see in stock sps coral as well as anything under $100
 
+## License
+https://opensource.org/licenses/MIT
+
 ## Development
+
+
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
