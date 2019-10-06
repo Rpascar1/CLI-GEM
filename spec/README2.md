@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use this app to see in stock sps coral as well as anything under $100
 
 ## Development
 
