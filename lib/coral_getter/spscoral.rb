@@ -83,7 +83,6 @@ class CoralGetter::SpsCoral
       @@three.clear
         array = []
         input = nil
-        
 
 
       @@data.each do |tophash|
@@ -150,8 +149,7 @@ class CoralGetter::SpsCoral
             end
           end
         end
-
-
+end
 
       def four
         @@three.clear
@@ -204,7 +202,7 @@ class CoralGetter::SpsCoral
 #
 #
 #
- end
+
 end
 
 
