@@ -4,7 +4,7 @@ require 'Launchy'
 
 
 class CoralGetter::SpsCoral
-  @@data = nil
+  @@data = []
   @@corals = []
   @@three = []
   @@four = []
@@ -18,35 +18,50 @@ class CoralGetter::SpsCoral
 
 #@@all = []
     def scrape
-      url = "https://tjmcorals.com/collections/sps/products.json"
-      page_data = HTTParty.get(url)
-
-      @@data = page_data.parsed_response
-
-        @@data["products"].each do |hash|
-          @@corals << {:coralname => hash['title'],
-             :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}",
-             :price => hash["variants"][0]["price"],
-             :available => hash["variants"][0]["available"],
-             :species => hash["product_type"]
-            }
+      url1 = "https://tjmcorals.com/collections/sps/products.json?page"
+      url2 = "https://tjmcorals.com/collections/sps/products.json?page=2"
+      urls = [url1,url2]
+      page_data = []
+        urls.each do |url|
+          page_data << HTTParty.get(url)
+        end
+        page_data.each do |hash|
+          @@data << hash.parsed_response
 
         end
-    end
+
+        @@data.each do |tophash|
+          tophash["products"].each do |hash|
+            @@corals << {
+              :coralname => hash['title'],
+              :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}",
+              :price => hash["variants"][0]["price"],
+              :available => hash["variants"][0]["available"],
+              :species => hash["product_type"]
+              }
+            end
+          end
+        end
+
+
           # puts "Enter 1 for a full list of availble species by street name."
     def one
-        @@data["products"].each do |hash|
-          one = hash['title']
-          puts = "Full list of available corals."
-            puts one
-        end
+
+        @@corals.each do |attributes|
+        puts attributes[:coralname]
+
+        puts = "Full list of available corals."
     end
+
+  end
 
     def two
         array = []
         i = 1
-        @@data["products"].each do |hash|
+        @@data.each do |tophash|
+        tophash["products"].each do |hash|
           array << hash["variants"][0]["price"].to_i
+        end
         end
           new_array = array.uniq!
           new_array = new_array.sort!{|min,max| min <=> max}
@@ -66,14 +81,18 @@ class CoralGetter::SpsCoral
 
       array = []
 
-        @@data["products"].each do |hash|
+      @@data.each do |tophash|
+      tophash["products"].each do |hash|
           @@three << {
                       :coralname => hash['title'],
                       :price => hash["variants"][0]["price"].to_i,
                       :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}"
                      }
         end
+
+      end
             @@three.each do |coral|
+
             if coral[:price].to_i <= 100
               array << "#{coral[:coralname]} - #{coral[:price]}"
               end
@@ -85,29 +104,14 @@ class CoralGetter::SpsCoral
 
       end
 
-            #   array = []
-            #   @@corals.each do |coral|
-            #     if coral[:price]["variants"][0]["price"].to_i <= 100
-            #       array << coral[:price] => hash["variants"][0]["price"]
-            #     end
-            #   end
-
-
-              # @@corals << @coral = {:coralname => hash['title'],
-              #         :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}",
-              #         :price => hash["variants"][0]["price"],
-              #         :available => hash["variants"][0]["available"],
-              #         :species => hash["product_type"]
-              #        }
-              #
-
 
               def four
                 input = nil
                 while input != 'exit'
                   input = Readline.readline.downcase
-                  @@data["products"].each do |hash|
-                  @@four << {
+                  @@data.each do |tophash|
+                    tophash["products"].each do |hash|
+                      @@four << {
                               :coralname => hash['title'],
                               :price => hash["variants"][0]["price"].to_i,
                               :url => "https://tjmcorals.com/collections/sps/products/#{hash['handle']}"
@@ -119,6 +123,7 @@ class CoralGetter::SpsCoral
                              end
 
                            end
+                         end
                 end
                 puts ""
               end
@@ -146,6 +151,7 @@ class CoralGetter::SpsCoral
    # s
    # puts "Please make a selection:"
    # puts
+
 
 
 end
