@@ -6,7 +6,7 @@ class Fox
 def do_a_barrel_roll
 
    puts `clear`
-    puts "                                                ..                                    ..                                              ..,    .
+    array = ["                                                ..                                    ..                                              ..,    .
                                            .  .                                  . ..                                              . ..    ..
                                                                                                  .(/         .   .        ,/    ...          ..
                                                       ..                                        .&&%%#/      .. .  .   .(#%%%   ...
@@ -63,7 +63,11 @@ def do_a_barrel_roll
                                                                                                                 ... ......  .
 
 
-"
+"]
+  array.each do |line|
+    puts line
+    sleep 0.1
+  end
     puts "Level up Fox. You found my first program ever." '"Twittter for Gucci Smart Toilet™"'
           Launchy.open("https://m.twitter.com/ProteusLinnaeus/status/1142800917395320832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1142800917395320832&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps%253A%252F%252Ftwitter.com%252FProteusLinnaeus%252Fstatus%252F1142800917395320832%26widget%3DTweet")
           Launchy.open("https://www.youtube.com/watch?v=wIkJvY96i8w")

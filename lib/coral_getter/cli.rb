@@ -73,7 +73,13 @@ class CoralGetter::CLI
           puts
               CoralGetter::SpsCoral.new.three
         when "4"
-          available
+          clear
+          print "\e[3J\e[H\e[2J"
+              CoralGetter::SpsCoral.new.four
+          puts
+          puts
+          puts "------------------------------------------------------------"
+          puts "To return, enter 'menu' or enter 'exit' to end your session."
         when "Secret Function".downcase
               Fox.new.secret_answer
         when ""

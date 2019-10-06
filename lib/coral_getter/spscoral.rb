@@ -40,6 +40,7 @@ class CoralGetter::SpsCoral
               :species => hash["product_type"]
               }
             end
+
           end
         end
 
@@ -114,6 +115,10 @@ class CoralGetter::SpsCoral
           if input == 'menu'
             CoralGetter::CLI.new.call_on_open
           end
+          if input == 'exit'
+            exit
+            exit
+          end
           if input != 'exit' || input != 'menu'
 
           @@three.each do|coral|
@@ -123,4 +128,52 @@ class CoralGetter::SpsCoral
           end
       end
     end
+
+
+      def four
+        puts "These corals are out of stock."
+        puts "------------------------------------"
+        puts
+        @@data.each do |tophash|
+          tophash["products"].each do |hash|
+           @@three << {
+                        :coralname => hash['title'],
+                        :available => hash["variants"][0]["available"]
+                       }
+                     end
+
+          @@three.each do |coral|
+
+            if coral[:available] != true
+              @@four << coral unless coral == self
+              puts "#{coral[:coralname]} is ***OUT OF STOCK***."
+                end
+
+            end
+
+
+
+
+          end
+            # @@three.each do |coral|
+            #   coral.each do |key, value|
+            #   binding.pry
+            #     if coral[tcheck] == true
+            #               puts "#{coral[name]} is available"
+            #     else
+            #       puts "#{coral[name]} is out of stock"
+            #             end
+            #           end
+            #         end
+            #       end
+
+
+
+
+
+
+end
+
+
+
 end
