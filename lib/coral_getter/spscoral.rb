@@ -8,6 +8,7 @@ class CoralGetter::SpsCoral
   @@corals = []
   @@three = []
   @@four = []
+  @@five = []
     def initialize
       scrape
       @@data
@@ -79,9 +80,10 @@ class CoralGetter::SpsCoral
 
 
     def three
-
+      @@three.clear
         array = []
         input = nil
+        
 
 
       @@data.each do |tophash|
@@ -105,10 +107,12 @@ class CoralGetter::SpsCoral
             end
 
           puts array
-          puts "------------------------------------------------------------"
-          puts "To return, enter 'menu' or enter 'exit' to end your session."
           puts
+          puts "------------------------------------------------------------"
           puts " If you would like to see this coral, please type it's complete name."
+          puts "To return, enter 'menu' or enter 'exit' to end  session."
+          puts
+
 
 
             input = Readline.readline.downcase
@@ -117,63 +121,91 @@ class CoralGetter::SpsCoral
           end
           if input == 'exit'
             exit
-            exit
+
           end
           if input != 'exit' || input != 'menu'
 
           @@three.each do|coral|
             if input.downcase == coral[:coralname].downcase
             Launchy.open "#{coral[:url]}"
+            print "\e[3J\e[H\e[2J"
+            print "\e[3J\e[H\e[2J"
+            puts
+            puts
+            puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
+            puts "-----------------------------------------------------------------------------------------------"
+            puts
+            three
+          elsif
+              input == nil
+
+            print "\e[3J\e[H\e[2J"
+            print "\e[3J\e[H\e[2J"
+            puts
+            puts
+            puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
+            puts "-----------------------------------------------------------------------------------------------"
+            puts
+            three
             end
           end
-      end
-    end
+        end
+
 
 
       def four
+        @@three.clear
+
         puts "These corals are out of stock."
         puts "------------------------------------"
         puts
         @@data.each do |tophash|
           tophash["products"].each do |hash|
-           @@three << {
+           @@three <<  {
                         :coralname => hash['title'],
                         :available => hash["variants"][0]["available"]
                        }
                      end
 
+
+
+
           @@three.each do |coral|
-
             if coral[:available] != true
-              @@four << coral unless coral == self
-              puts "#{coral[:coralname]} is ***OUT OF STOCK***."
-                end
-
+            @@five << coral unless @@five.include?(self)
+            end
+            end
             end
 
+          @@five.uniq.each do |coral|
+              puts "#{coral[:coralname]} is ***OUT OF STOCK***."
 
 
+            end
+#
+#
+#
+#
 
-          end
-            # @@three.each do |coral|
-            #   coral.each do |key, value|
-            #   binding.pry
-            #     if coral[tcheck] == true
-            #               puts "#{coral[name]} is available"
-            #     else
-            #       puts "#{coral[name]} is out of stock"
-            #             end
-            #           end
-            #         end
-            #       end
-
-
-
-
-
-
+#             # @@three.each do |coral|
+#             #   coral.each do |key, value|
+#             #   binding.pry
+#             #     if coral[tcheck] == true
+#             #               puts "#{coral[name]} is available"
+#             #     else
+#             #       puts "#{coral[name]} is out of stock"
+#             #             end
+#             #           end
+#             #         end
+#             #       end
+#
+#
+#
+#
+#
+#
+ end
 end
-
 
 
 end

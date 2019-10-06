@@ -8,7 +8,8 @@ class CoralGetter::CLI
 
 
   def user_menu
-
+    clear
+    print "\e[3J\e[H\e[2J"
       Coral.new.coral_p
 
       puts
@@ -17,11 +18,11 @@ class CoralGetter::CLI
       puts
       puts "1 For a full list of species street names."
       puts
-      puts "2 See the price range of all available stock."
+      puts "2 - See the price range of all available stock."
       puts
-      puts "3 'Bargain Bin' - all corals under $100."
+      puts '3 - "Bargain Bin" - all corals under $100.'
       puts
-      puts "4 Complete list of names and prices of all stock."
+      puts "4 - Complete list of names and prices of coral currently out of stock."
       puts
       puts "Please enter your selection, clear, or exit."
       puts
@@ -42,7 +43,7 @@ class CoralGetter::CLI
           puts
           puts
           puts "Here is the full list of available corals."
-          puts "------------------------------------------"
+          puts "-----------------------------------------------------------------------------------------------"
           puts
               CoralGetter::SpsCoral.new.one
           puts
