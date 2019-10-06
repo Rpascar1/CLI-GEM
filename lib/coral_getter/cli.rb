@@ -149,10 +149,10 @@ class CoralGetter::CLI
    goodbye
   end
 
-  def harvest_url
-   https://tjmcorals.com/collections/all
-   @prices = CoralGetter::SpsCoral.prices
-  end
+  # def harvest_url
+  #  https://tjmcorals.com/collections/all
+  #  @prices = CoralGetter::SpsCoral.prices
+  # end
 
 
 end

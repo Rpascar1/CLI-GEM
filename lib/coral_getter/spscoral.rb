@@ -17,7 +17,7 @@ class CoralGetter::SpsCoral
       @@four
     end
 
-#@@all = []
+
     def scrape
       url1 = "https://tjmcorals.com/collections/sps/products.json?page"
       url2 = "https://tjmcorals.com/collections/sps/products.json?page=2"
@@ -46,7 +46,6 @@ class CoralGetter::SpsCoral
         end
 
 
-          # puts "Enter 1 for a full list of availble species by street name."
     def one
 
         @@corals.uniq.each do |attributes|
@@ -165,9 +164,6 @@ end
                        }
                      end
 
-
-
-
           @@three.each do |coral|
             if coral[:available] != true
             @@five << coral unless @@five.include?(self)
@@ -177,33 +173,9 @@ end
 
           @@five.uniq.each do |coral|
               puts "#{coral[:coralname]} is ***OUT OF STOCK***."
+          end
 
 
-            end
-#
-#
-#
-#
-
-#             # @@three.each do |coral|
-#             #   coral.each do |key, value|
-#             #   binding.pry
-#             #     if coral[tcheck] == true
-#             #               puts "#{coral[name]} is available"
-#             #     else
-#             #       puts "#{coral[name]} is out of stock"
-#             #             end
-#             #           end
-#             #         end
-#             #       end
-#
-#
-#
-#
-#
-#
-
-end
-
+      end
 
 end
