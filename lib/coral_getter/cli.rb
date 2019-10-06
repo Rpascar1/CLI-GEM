@@ -10,28 +10,27 @@ class CoralGetter::CLI
   def user_menu
     clear
     print "\e[3J\e[H\e[2J"
-      Coral.new.coral_p
+      puts Coral.new.coral_p
 
-      puts
-      puts
-      puts "Please make a selection:"
-      puts
-      puts "1 For a full list of species street names."
-      puts
-      puts "2 - See the price range of all available stock."
-      puts
-      puts '3 - "Bargain Bin" - all corals under $100.'
-      puts
-      puts "4 - Complete list of names and prices of coral currently out of stock."
-      puts
-      puts "Please enter your selection, clear, or exit."
-      puts
-      puts
-      puts
-      puts
-      puts
-      puts "Secret Function - Do a barrel roll Fox, N1000000 version only. If you know, you know."
-
+      # puts
+      # puts
+      # puts "Please make a selection:"
+      # puts
+      # puts "1 For a full list of species street names."
+      # puts
+      # puts "2 - See the price range of all available stock."
+      # puts
+      # puts '3 - "Bargain Bin" - all corals under $100.'
+      # puts
+      # puts "4 - Complete list of names and prices of coral currently out of stock."
+      # puts
+      # puts "Please enter your selection, clear, or exit."
+      # puts
+      # puts
+      # puts
+      # puts
+      # puts
+      
       input = nil
       secretanswer = nil
       while input != "exit"
@@ -140,8 +139,6 @@ class CoralGetter::CLI
   end
 
   def call_on_open
-   puts
-   puts
    puts "Welcome! To see current coral information enter the corresponding number to one of the following options.\nYou can return to this menu at anytime by typing menue./n If you would like to end the session, please type exit."
    puts
    puts
