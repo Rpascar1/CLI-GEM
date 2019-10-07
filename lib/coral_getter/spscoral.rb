@@ -4,6 +4,9 @@ require 'Launchy'
 
 
 class CoralGetter::SpsCoral
+  extend Menu_Mod
+  include Menu_Mod
+
   def endline
     puts @@line
     puts "To return, enter 'menu' or enter 'exit' to end your session."
@@ -156,6 +159,9 @@ class CoralGetter::SpsCoral
                   CoralGetter::SpsCoral.new.four
                 endline
             when "menu"
+              clear_and_print
+              CoralGetter::CLI.new.user_menu
+            when "clear"
               clear_and_print
               CoralGetter::CLI.new.user_menu
           when input == @@three.each do|coral|
