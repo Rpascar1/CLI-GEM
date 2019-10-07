@@ -5,6 +5,7 @@ require 'launchy'
 require 'readline'
 require 'pry'
 require './concerns/menu_mod'
+
 require_relative  './coral_getter/version'
 require_relative  '../concerns/menu_mod'
 
