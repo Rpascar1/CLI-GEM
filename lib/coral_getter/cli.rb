@@ -7,86 +7,42 @@ class CoralGetter::CLI
 
 
 
+
+
   def user_menu
-    clear
-    print "\e[3J\e[H\e[2J"
+      clear_and_print
       puts Coral.coral_p
 
-      # puts
-      # puts
-      # puts "Please make a selection:"
-      # puts
-      # puts "1 For a full list of species street names."
-      # puts
-      # puts "2 - See the price range of all available stock."
-      # puts
-      # puts '3 - "Bargain Bin" - all corals under $100.'
-      # puts
-      # puts "4 - Complete list of names and prices of coral currently out of stock."
-      # puts
-      # puts "Please enter your selection, clear, or exit."
-      # puts
-      # puts
-      # puts
-      # puts
-      # puts
 
       input = nil
       secretanswer = nil
+
       while input != "exit"
         input = Readline.readline.downcase
         case input
         when "1"
-          clear
-          print "\e[3J\e[H\e[2J"
-          puts
-          puts
-          puts "Here is the full list of available corals."
-          puts "-----------------------------------------------------------------------------------------------"
-          puts
+          clear_and_print
               CoralGetter::SpsCoral.new.one
-          puts
-          puts
-          puts "------------------------------------------------------------"
-          puts "To return, enter 'menu' or enter 'exit' to end your session."
+          endline
         when "2"
-          clear
-          print "\e[3J\e[H\e[2J"
-          puts
-          puts
-          puts "Here is a list of all possible coral prices starting with the lowest and moving to the highest."
-          puts "-----------------------------------------------------------------------------------------------"
-          puts
+          clear_and_print
               CoralGetter::SpsCoral.new.two
-          puts
-          puts
-          puts "------------------------------------------------------------"
-          puts "To return, enter 'menu' or enter 'exit' to end your session."
+              endline
 
         when "3"
-          clear
-          print "\e[3J\e[H\e[2J"
-          puts
-          puts
-          puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
-          puts "-----------------------------------------------------------------------------------------------"
-          puts
+          clear_and_print
               CoralGetter::SpsCoral.new.three
+            endline
         when "4"
-          clear
-          print "\e[3J\e[H\e[2J"
+            clear_and_print
               CoralGetter::SpsCoral.new.four
-          puts
-          puts
-          puts "------------------------------------------------------------"
-          puts "To return, enter 'menu' or enter 'exit' to end your session."
+            endline
         when "Secret Function".downcase
               Fox.new.secret_answer
         when ""
           puts "Invalid entry, please try again."
         when "menu"
-          clear
-          print "\e[3J\e[H\e[2J"
+          clear_and_print
           input = "exit"
           print `clear`
           CoralGetter::CLI.new.user_menu
@@ -95,11 +51,9 @@ class CoralGetter::CLI
           print `clear`
           CoralGetter::CLI.new.user_menu
         when "self-destruct"
-            clear
-            print "\e[3J\e[H\e[2J"
+          clear_and_print
             Ending.new.ending_secret
-            clear
-            print "\e[3J\e[H\e[2J"
+            clear_and_print
             input = "exit"
          else
               if input.to_i > 4
@@ -114,28 +68,13 @@ class CoralGetter::CLI
     end
 
 
-  def range_of_prices
-    puts "price range"
-  end
-
-  def list_names_with_prices
-    puts "name and price"
-  end
-
-  def quantity
-    puts "quant"
-  end
-
-  def price_range(amount)
-    puts "range selections"
-  end
-
   def goodbye
     puts "Session Exited"
   end
 
-  def clear
-   puts "\e[2J\e[f"
+  def clear_and_print
+  puts "\e[2J\e[f"
+  print "\e[3J\e[H\e[2J"
   end
 
   def call_on_open
@@ -146,10 +85,10 @@ class CoralGetter::CLI
    goodbye
   end
 
-  # def harvest_url
-  #  https://tjmcorals.com/collections/all
-  #  @prices = CoralGetter::SpsCoral.prices
-  # end
+  def endline
+puts "-----------------------------------------------------------------------------------------------"
+    puts "To return, enter 'menu' or enter 'exit' to end your session."
+  end
 
 
 end

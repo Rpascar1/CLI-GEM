@@ -4,11 +4,28 @@ require 'Launchy'
 
 
 class CoralGetter::SpsCoral
+  def endline
+    puts @@line
+    puts "To return, enter 'menu' or enter 'exit' to end your session."
+  end
+  @@line = "-----------------------------------------------------------------------------------------------"
   @@data = []
   @@corals = []
   @@three = []
   @@four = []
   @@five = []
+  def space
+    puts @@line
+    puts ""
+  end
+  def clear_and_print
+  puts "\e[2J\e[f"
+  print "\e[3J\e[H\e[2J"
+  end
+
+  def ifyou
+    puts "\nTo return, enter 'menu' or enter 'exit' to end  session."
+  end
     def initialize
       scrape
       @@data
@@ -46,17 +63,24 @@ class CoralGetter::SpsCoral
         end
 
 
-    def one
+        def one
+          puts "Here is the full lexicographical list of available corals."
+          space
 
-        @@corals.uniq.each do |attributes|
-        puts attributes[:coralname]
+            @@corals.uniq!
+            @@corals.sort_by!{|coral|coral[:coralname]}
+            @@corals.each do |attributes|
 
-        puts = "Full list of available corals."
-    end
+            puts attributes[:coralname]
 
-  end
+        end
+        puts
+        end
 
     def two
+      puts "Here is a complete list of price brackets sorted from lowest to highest."
+      puts @@line
+      puts
         array = []
         i = 1
         @@data.each do |tophash|
@@ -70,19 +94,18 @@ class CoralGetter::SpsCoral
             puts "#{i}. #{line}"
             i += 1
           end
-          puts
-          puts
 
-            puts "The current price range of all sps coral is between $#{new_array.min} and $#{new_array.max} dollars."
+            puts "\nThe current price range of all sps coral is between $#{new_array.min} and $#{new_array.max} dollars."
 
     end
 
 
     def three
-      @@three.clear
+      @@three
         array = []
         input = nil
-
+        puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
+        space
 
       @@data.each do |tophash|
       tophash["products"].each do |hash|
@@ -105,66 +128,69 @@ class CoralGetter::SpsCoral
             end
 
           puts array
-          puts
-          puts "------------------------------------------------------------"
-          puts " If you would like to see this coral, please type it's complete name."
-          puts "To return, enter 'menu' or enter 'exit' to end  session."
-          puts
+          space
+          puts "If you would like to see this coral, please type it's complete name."
+          puts "\nTo return, enter 'menu' or enter 'exit' to end  session."
 
 
 
+          while input != "exit"
             input = Readline.readline.downcase
-          if input == 'menu'
-            CoralGetter::CLI.new.call_on_open
-          end
-          if input == 'exit'
-            exit
-
-          end
-          if input != 'exit' || input != 'menu'
-
-          @@three.each do|coral|
+            case input
+            when 'exit'
+                exit
+            when "1"
+              clear_and_print
+                  CoralGetter::SpsCoral.new.one
+                endline
+            when "2"
+              clear_and_print
+                  CoralGetter::SpsCoral.new.two
+                endline
+            when "3"
+              clear_and_print
+                  CoralGetter::SpsCoral.new.three
+                endline
+            when "4"
+                clear_and_print
+                  CoralGetter::SpsCoral.new.four
+                endline
+            when "menu"
+              clear_and_print
+              CoralGetter::CLI.new.user_menu
+          when input == @@three.each do|coral|
             if input.downcase == coral[:coralname].downcase
             Launchy.open "#{coral[:url]}"
-            print "\e[3J\e[H\e[2J"
-            print "\e[3J\e[H\e[2J"
-            puts
-            puts
-            puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
-            puts "-----------------------------------------------------------------------------------------------"
-            puts
-            three
-          elsif
-              input == nil
+          end
 
-            print "\e[3J\e[H\e[2J"
-            print "\e[3J\e[H\e[2J"
-            puts
-            puts
-            puts "Here is a lexicographical list of all sps coral who's price is $100 dollars or less."
-            puts "-----------------------------------------------------------------------------------------------"
-            puts
-            three
+
+
+          if input == 'exit'
+            exit
+          end
+          end
+
+
+
             end
           end
         end
-end
+
 
       def four
-        @@three.clear
+        @@four
 
         puts "These corals are out of stock."
-        puts "------------------------------------"
-        puts
+        space
         @@data.each do |tophash|
           tophash["products"].each do |hash|
-           @@three <<  {
+           @@four <<  {
                         :coralname => hash['title'],
                         :available => hash["variants"][0]["available"]
                        }
                      end
 
-          @@three.each do |coral|
+          @@four.each do |coral|
             if coral[:available] != true
             @@five << coral unless @@five.include?(self)
             end
@@ -174,8 +200,7 @@ end
           @@five.uniq.each do |coral|
               puts "#{coral[:coralname]} is ***OUT OF STOCK***."
           end
-
-
+          puts
       end
 
 end
