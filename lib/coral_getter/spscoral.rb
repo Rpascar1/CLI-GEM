@@ -162,11 +162,13 @@ class CoralGetter::SpsCoral
               clear_and_print
               CoralGetter::CLI.new.user_menu
             when "clear"
-              clear_and_print
-              CoralGetter::CLI.new.user_menu
-          when input == @@three.each do|coral|
-            if input.downcase == coral[:coralname].downcase
+                clear_and_print
+                CoralGetter::SpsCoral.new.three
+          when input.downcase == @@three.each do|coral|
+            if input == coral[:coralname].downcase
             Launchy.open "#{coral[:url]}"
+            clear_and_print
+                CoralGetter::SpsCoral.new.three
           end
 
 
