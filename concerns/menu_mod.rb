@@ -64,11 +64,13 @@ puts "--------------------------------------------------------------------------
                 unless input == 'exit'
                   puts "Invalid option. Please make another selection."
               end
-          end
-        end
-      end
+            end
+
+    end
+end
 
   def goodbye
     puts "Session Exited"
   end
+end
 end
