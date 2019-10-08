@@ -31,8 +31,6 @@ class CoralGetter::SpsCoral
 
   #############################################################################
     def initialize
-
-      @@data
       @@corals
       @@three
       @@four
@@ -40,17 +38,7 @@ class CoralGetter::SpsCoral
 
 ######################## inst meths ****************************************
     def scrape
-      url1 = "https://tjmcorals.com/collections/sps/products.json?page"
-      url2 = "https://tjmcorals.com/collections/sps/products.json?page=2"
-      urls = [url1,url2]
-      page_data = []
 
-      urls.each do |url|
-        page_data << HTTParty.get(url)
-      end
-      page_data.each do |hash|
-        @@data << hash.parsed_response
-      end
       @@data.each do |tophash|
         tophash["products"].each do |hash|
           @@corals << {
@@ -70,10 +58,9 @@ class CoralGetter::SpsCoral
       @@corals.uniq!
       @@corals.sort_by!{|coral|coral[:coralname]}
       @@corals.each do |attributes|
-        puts attributes[:coralname]
+       attributes[:coralname]
       end
-        puts
-      end
+  end
 
   def two
     puts "Here is a complete list of price brackets sorted from lowest to highest."
@@ -92,7 +79,7 @@ class CoralGetter::SpsCoral
           puts "#{i}. #{line}"
           i += 1
           end
-        puts "\nThe current price range of all sps coral is between $#{new_array.min} and $#{new_array.max} dollars."
+        puts "The current price range of all sps coral is between $#{new_array.min} and $#{new_array.max} dollars."
   end
 
 
@@ -121,9 +108,10 @@ class CoralGetter::SpsCoral
               end
 
         puts array
+    
         space
         puts "If you would like to see this coral, please type it's complete name."
-        puts "\nTo return, enter 'menu' or enter 'exit' to end  session."
+        puts "\nTo return, enter 'menu' or enter 'exit' to end  session.\n"
 
   end
 
@@ -149,7 +137,6 @@ class CoralGetter::SpsCoral
           @@five.uniq.each do |coral|
               puts "#{coral[:coralname]} is ***OUT OF STOCK***."
           end
-          puts
       end
 
 end
