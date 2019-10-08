@@ -1,5 +1,7 @@
 module Menu_Mod
 
+
+
   def clear_and_print
   puts "\e[2J\e[f"
   print "\e[3J\e[H\e[2J"
@@ -22,20 +24,20 @@ puts "--------------------------------------------------------------------------
         case input
         when "1"
           clear_and_print
-              CoralGetter::SpsCoral.new.one
+              SpsCoral.one
           endline
         when "2"
           clear_and_print
-              CoralGetter::SpsCoral.new.two
+              SpsCoral.two
               endline
 
         when "3"
           clear_and_print
-              CoralGetter::SpsCoral.new.three
+              SpsCoral.three
             endline
         when "4"
             clear_and_print
-              CoralGetter::SpsCoral.new.four
+              SpsCoral.four
             endline
         when "Secret Function".downcase
               Fox.new.secret_answer
