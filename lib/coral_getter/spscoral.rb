@@ -105,7 +105,7 @@ end
                   if input == coral.name.downcase
                     Launchy.open "#{coral.url}"
                     clear_and_print
-                    CoralGetter::SpsCoral.new.three
+                    SpsCoral.three
                   end
                 end
 
@@ -131,7 +131,7 @@ end
         end
 
         def self.create(urls)
-            # method used to create instance, pulls from scraped data
+    
             coral_list = Scraper.coral_attributes(urls)
 
             coral_list.each do |coral_info|

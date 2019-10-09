@@ -17,8 +17,6 @@ class CoralGetter::CLI
 
   end
 
-  #note#
-
 
 
 end

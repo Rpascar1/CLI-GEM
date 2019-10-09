@@ -1,24 +1,20 @@
 module Menu_Mod
 
-
-
   def clear_and_print
   puts "\e[2J\e[f"
   print "\e[3J\e[H\e[2J"
   end
 
   def endline
-puts "-----------------------------------------------------------------------------------------------"
+    puts "-----------------------------------------------------------------------------------------------"
     puts "To return, enter 'menu' or enter 'exit' to end your session."
   end
 
   def user_menu
       clear_and_print
       puts Coral.coral_p
-
       input = nil
       secretanswer = nil
-
       while input != "exit"
         input = Readline.readline.downcase
         case input
@@ -30,7 +26,6 @@ puts "--------------------------------------------------------------------------
           clear_and_print
               SpsCoral.two
               endline
-
         when "3"
           clear_and_print
               SpsCoral.three
@@ -59,18 +54,17 @@ puts "--------------------------------------------------------------------------
             input = "exit"
           when input.to_i > 4
                 puts "Invalid option. Please make another selection."
-
           else
                 unless input == 'exit'
                   puts "Invalid option. Please make another selection."
-              end
+                end
             end
-
+        end
     end
-end
+
 
   def goodbye
     puts "Session Exited"
   end
-end
+
 end

@@ -43,10 +43,6 @@ class Scraper
       coral_array
   end
 
-  def self.create_animal_collection(urls)
-      # sends collected hash to Animal object for instantiation
-      AnimalScraper.scrape_animal_info(urls)
-  end
 
 
 
